@@ -1,0 +1,36 @@
+﻿@model List<CyberCafe.Models.TableViewModels.UsersTableViewModel>
+@using CyberCafe.Models.TableViewModels
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>MANAGE ACTIVE USERS</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="fit text-center">#</th>
+            <th class="fit text-center">Entry ID</th>
+            <th class="fit text-center">Full Name</th>
+            <th class="fit text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 1;}
+        @foreach (UsersTableViewModel user in Model)
+        {
+        <tr>
+            <td class="fit text-center">@i</td>
+            <td class="fit text-center">@user.EntryID</td>
+            <td class="fit text-center">@user.Name</td>
+            <td class="fit text-center">
+                <a class="btn btn-primary" href="@Url.Action($"ViewUser/{user.Id}","User")"><i class="fa-solid fa-eye"></i></a>
+                <a class="btn btn-danger" href="@Url.Action($"Delete/{user.Id}","User")"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+            i = i + 1;
+        }
+
+    </tbody>
+</table>

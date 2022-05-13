@@ -1,0 +1,27 @@
+﻿@model CyberCafe.Models.ViewModels.ReportViewModel
+@{
+    ViewBag.Title = "Between Dates";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Report Between Dates</h2>
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        @using (Html.BeginForm("DatesDetail", "Report", FormMethod.Post))
+        {
+            @*@Html.AntiForgeryToken()*@
+            @Html.ValidationMessage("error", new { @class = "text-danger" })
+
+            @Html.LabelFor(d => d.Start)
+            <input type = "date" name="Start" id = "Start" class="Start form-control" />
+
+            @Html.LabelFor(d => d.End)
+            <input type="date" name="End" id="End" class="End form-control" />
+
+            <input type="submit" class="btn btn-primary col-12" />
+        }
+    </div>
+</div>
+

@@ -1,0 +1,146 @@
+﻿body {
+    /*padding-top: 50px;*/
+    padding-bottom: 20px;
+}
+
+.col-1{width:8.33%}
+.col-2{width:16.7%}
+.col-3{width:25%}
+.col-4{width:33%}
+.col-5{width:41.7%}
+.col-6{width:50%}
+.col-7{width:58.3%}
+.col-8{width:66.7%}
+.col-9{width:75%}
+.col-10{width:83.3%}
+.col-11{width:91.7%}
+.col-12{width:100%}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-left:200px;
+    padding-left: 30px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+@media(max-width:990px){ 
+    /*small Screens*/
+    .sidebar{
+        display:none !important;
+    }
+    .navbar{
+        margin-left:0px !important;
+    }
+    .body-content{
+        margin-left:0px;
+    }
+    .sidebar-navbar-item{
+        visibility:visible !important;
+    }
+
+    .navbar-nav{
+        float:none !important;
+    }
+}
+
+.navbar{
+    margin-left:200px;
+}
+
+.container{
+    width:100%
+}
+.navbar-nav{
+    float:right;
+}
+
+.sidebar {
+    background-color: #272C33;
+    position: fixed;
+    top: 0px;
+    left:0px;
+    width: 200px;
+    height: 100vh;
+}
+
+.sidebar-brand {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    font-size:1rem;
+}
+.sidebar-brand a, .sidebar-item a {
+    color: white;
+    text-decoration: none;
+    text-decoration-color: inherit;
+}
+
+.sidebar-navbar-item a {
+    text-decoration: none;
+    text-decoration-color: inherit;
+}
+
+.sidebar-items {
+    padding-left: 0;
+}
+
+.sidebar-item{
+    color:white;
+    margin-bottom:1rem;
+    padding: 1rem 0rem;
+    cursor:pointer;
+    padding-left:1rem;
+}
+
+.sidebar-item-active {
+    background-color: #363738;
+}
+
+.sidebar-item:hover {
+    background-color: #363738;
+}
+
+li.sidebar-item ,li.sidebar-navbar-item{
+    list-style: none;
+}
+
+.sidebar-item button {
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+.sidebar-dropdown-btn{
+    
+}
+
+.sidebar-dropdown-list {
+    display: none;
+    left: 0px;
+    padding-left: 2rem;
+    background-color: #363738;
+}
+
+.sidebar-dropdown-list li{
+    list-style:none;
+}
+
+.sidebar-dropdown-list li a:hover {
+        color: #AED6F1;
+}
+
+.sidebar-navbar-item{
+    cursor:pointer;
+    visibility:hidden;
+}
+
+.table th.fit, .table td.fit {
+    width: 1%;
+    white-space: nowrap;
+}

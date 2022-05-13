@@ -1,0 +1,39 @@
+﻿@model List<CyberCafe.Models.TableViewModels.UsersTableViewModel>
+@{
+    ViewBag.Title = "User Archive";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>USER ARCHIVE</h2>
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Entry ID</th>
+                    <th>Full Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int i = 1;}
+                @foreach (CyberCafe.Models.TableViewModels.UsersTableViewModel oUser in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@oUser.EntryID</td>
+                        <td>@oUser.Name</td>
+                        <td>
+                            <a class="btn btn-primary" href="@Url.Action($"ViewUser/{oUser.Id}","User")"><i class="fa-solid fa-eye"></i></a>
+                        </td>
+                    </tr>
+                    i++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

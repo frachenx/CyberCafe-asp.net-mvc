@@ -1,0 +1,39 @@
+﻿@model CyberCafe.Models.ViewModels.AddUserViewModel
+@using CyberCafe.Models.ViewModels
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add User</h1>
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+
+        @using (Html.BeginForm("Add", "User", FormMethod.Post))
+        {
+            @Html.ValidationMessage("error")
+
+            @Html.LabelFor(d => d.Name)
+            @Html.TextBoxFor(d => d.Name, new { @class = "form-control" })
+
+            @Html.LabelFor(d => d.Address)
+            @Html.TextBoxFor(d => d.Address, new { @class = "form-control" })
+
+            @Html.LabelFor(d => d.Contact)
+            @Html.TextBoxFor(d => d.Contact, new { @class = "form-control" })
+
+            @Html.LabelFor(d => d.Email)
+            @Html.TextBoxFor(d => d.Email, new { @class = "form-control" })
+
+            @Html.LabelFor(d => d.Computer)
+            @Html.DropDownListFor(d => d.Computer,(IEnumerable<SelectListItem>)ViewBag.ComputerList, new { @class = "form-control" })
+
+            @Html.LabelFor(d => d.IdProof)
+            @Html.TextBoxFor(d => d.IdProof, new { @class = "form-control" })
+
+            <input type="submit" class="btn btn-primary col-12" value="Add" />
+        }
+    </div>
+</div>

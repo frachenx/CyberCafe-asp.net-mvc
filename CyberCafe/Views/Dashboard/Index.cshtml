@@ -1,0 +1,38 @@
+﻿@model CyberCafe.Models.ViewModels.DashboardViewModel
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+</style>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <h1>Dashboard</h1>
+        <div class="card-group">
+            <div class="card">
+                <div class="card-header text-center">
+                    <i class="fa-solid fa-users fa-3x"></i>
+                    <h2>Users</h2>
+                </div>
+                <div class="card-body text-center">
+                    Active Users: @Model.ActiveUsers<br />
+                    <a href="@Url.Action("Index","User")" class="btn btn-primary">View Users</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header text-center">
+                    <i class="fa-solid fa-computer fa-3x"></i>
+                    <h2>Computers</h2>
+                </div>
+                <div class="card-body text-center">
+                    Total Number of Computers: @Model.Computers<br />
+
+                    <a href="@Url.Action("Index","Computer")" class="btn btn-primary">View Computers</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3"></div>
+</div>
+

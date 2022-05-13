@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CYBERCAFEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="admin_name" Type="varchar" MaxLength="255" />
+          <Property Name="admin_user_name" Type="varchar" MaxLength="255" />
+          <Property Name="admin_password" Type="varchar" MaxLength="255" />
+          <Property Name="admin_contact_number" Type="varchar" MaxLength="255" />
+          <Property Name="admin_email" Type="varchar" MaxLength="255" />
+          <Property Name="admin_created_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="computers">
+          <Key>
+            <PropertyRef Name="computer_id" />
+          </Key>
+          <Property Name="computer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="computer_name" Type="varchar" MaxLength="255" />
+          <Property Name="computer_location" Type="varchar" MaxLength="255" />
+          <Property Name="computer_ip" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="computer_id" Type="varchar" MaxLength="255" />
+          <Property Name="user_name" Type="varchar" MaxLength="255" />
+          <Property Name="user_address" Type="text" />
+          <Property Name="user_number" Type="varchar" MaxLength="255" />
+          <Property Name="user_email" Type="varchar" MaxLength="255" />
+          <Property Name="user_id_proof" Type="varchar" MaxLength="255" />
+          <Property Name="user_in_time" Type="datetime" />
+          <Property Name="user_out_time" Type="datetime" />
+          <Property Name="user_status" Type="varchar" MaxLength="255" />
+          <Property Name="user_fee" Type="float" />
+          <Property Name="user_remark" Type="text" />
+        </EntityType>
+        <EntityContainer Name="CYBERCAFEModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="computers" EntityType="Self.computers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CYBERCAFEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="admin_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="admin_user_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="admin_password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="admin_contact_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="admin_email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="admin_created_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="computers">
+          <Key>
+            <PropertyRef Name="computer_id" />
+          </Key>
+          <Property Name="computer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="computer_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="computer_location" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="computer_ip" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="computer_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="user_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="user_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="user_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="user_email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="user_id_proof" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="user_in_time" Type="DateTime" Precision="3" />
+          <Property Name="user_out_time" Type="DateTime" Precision="3" />
+          <Property Name="user_status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="user_fee" Type="Double" />
+          <Property Name="user_remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="CYBERCAFEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admin" EntityType="Self.admin" />
+          <EntitySet Name="computers" EntityType="Self.computers" />
+          <EntitySet Name="users" EntityType="Self.users" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CYBERCAFEModelStoreContainer" CdmEntityContainer="CYBERCAFEEntities">
+          <EntitySetMapping Name="admin">
+            <EntityTypeMapping TypeName="CYBERCAFEModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+                <ScalarProperty Name="admin_name" ColumnName="admin_name" />
+                <ScalarProperty Name="admin_user_name" ColumnName="admin_user_name" />
+                <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+                <ScalarProperty Name="admin_contact_number" ColumnName="admin_contact_number" />
+                <ScalarProperty Name="admin_email" ColumnName="admin_email" />
+                <ScalarProperty Name="admin_created_date" ColumnName="admin_created_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="computers">
+            <EntityTypeMapping TypeName="CYBERCAFEModel.computers">
+              <MappingFragment StoreEntitySet="computers">
+                <ScalarProperty Name="computer_id" ColumnName="computer_id" />
+                <ScalarProperty Name="computer_name" ColumnName="computer_name" />
+                <ScalarProperty Name="computer_location" ColumnName="computer_location" />
+                <ScalarProperty Name="computer_ip" ColumnName="computer_ip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="CYBERCAFEModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="computer_id" ColumnName="computer_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_address" ColumnName="user_address" />
+                <ScalarProperty Name="user_number" ColumnName="user_number" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="user_id_proof" ColumnName="user_id_proof" />
+                <ScalarProperty Name="user_in_time" ColumnName="user_in_time" />
+                <ScalarProperty Name="user_out_time" ColumnName="user_out_time" />
+                <ScalarProperty Name="user_status" ColumnName="user_status" />
+                <ScalarProperty Name="user_fee" ColumnName="user_fee" />
+                <ScalarProperty Name="user_remark" ColumnName="user_remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

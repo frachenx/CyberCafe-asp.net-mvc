@@ -1,0 +1,85 @@
+﻿@model CyberCafe.Models.ViewModels.AdminLoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - CCMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100&display=swap" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            padding: 0px 0px;
+            background: rgb(255,246,222);
+            background: linear-gradient(90deg, rgba(255,246,222,1) 0%, rgba(230,230,230,1) 99%);
+            font-family: 'Saira Condensed', sans-serif;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .frmLogin {
+            font-size: 3rem;
+        }
+
+        .input-custom {
+            min-width: 500px;
+        }
+
+        .lbl-custom {
+            width: 100%;
+            text-align: center;
+        }
+
+        .login-header {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="login-header">
+        Cyber Cafe Management System
+    </h1>
+
+    <div class="login-container ">
+        @using (Html.BeginForm("Login", "Access", FormMethod.Post, new { @class = "frmLogin" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationMessage("error", new { @class = "alert-danger", @style = "display:block; text-align:center;" })
+
+            @Html.LabelFor(d => d.Username)
+            @Html.TextBoxFor(d => d.Username, new { @class = "form-control input-custom" })
+            @Html.ValidationMessage("Email", new { @clas = "text-danger" })
+
+            @Html.LabelFor(d => d.Password)
+            @Html.PasswordFor(d => d.Password, new { @class = "form-control input-custom" })
+            @Html.ValidationMessage("Password", new { @clas = "text-danger" })
+
+            <div class="form-group" style="padding-top:0.5rem;">
+                <input type="submit" class="btn btn-success btn-block" value="Login" />
+            </div>
+        }
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+        const alertSuccess = document.getElementsByClassName('alert-danger')[0];
+        setTimeout(() => { alertSuccess.style.display = 'none' }, 1500);
+    </script>
+</body>
+</html>

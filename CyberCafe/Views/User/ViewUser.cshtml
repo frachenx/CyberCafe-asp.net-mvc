@@ -1,0 +1,83 @@
+﻿@model CyberCafe.Models.ViewModels.UserViewModel
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View User</h2>
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td style="text-align:right;"><strong>Entry ID:</strong></td>
+                    <td>@Model.EntryID</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;"><strong>Full Name:</strong></td>
+                    <td>@Model.Name</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;"><strong>User Address:</strong></td>
+                    <td>@Model.Address</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;"><strong>Mobile Number:</strong></td>
+                    <td>@Model.Contact</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;"><strong>Email:</strong></td>
+                    <td>@Model.Email</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;"><strong>ID Proof:</strong></td>
+                    <td>@Model.IdProof</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;"><strong>In Time:</strong></td>
+                    <td>@Model.InTime</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;"><strong>Status:</strong></td>
+                    <td>
+                        @if (Model.Status == null)
+                        {
+                            <span>Not Updated Yet</span>
+                        }
+                        else
+                        {
+                            <span>@Model.Status</span>
+                        }
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        @if (Model.Status == null)
+        {
+            using (Html.BeginForm("ViewUser", "User", FormMethod.Post))
+            {
+                @Html.ValidationMessage("error")
+
+                @Html.LabelFor(d => d.Remark)
+                @Html.TextAreaFor(d => d.Remark, new { @class = "form-control" })
+                @Html.ValidationMessage("Remark", new { @class = "text-danger" })<br />
+
+                @Html.LabelFor(d => d.Fee)
+                @Html.TextBoxFor(d=>d.Fee, new { @class = "form-control" })
+                @Html.ValidationMessage("Fee", new { @class = "text-danger" })<br />
+
+                @Html.LabelFor(d => d.Status)
+                <select name="Status" id="Status" class="form-control">
+                    <option value="CHECK OUT">CHECK OUT</option>
+                </select>
+                @Html.ValidationMessage("Status",new {@class="text-danger"})<br />
+
+                <input type="submit" class="btn btn-primary col-12" />
+            }
+        }
+    </div>
+</div>
